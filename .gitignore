@@ -1,5 +1,8 @@
 *.class
+<<<<<<< HEAD
 .metadata
+=======
+>>>>>>> c9201fc8e32ed811cd92ce0cc33981df93629c03
 *~
 # Package Files #
 *.jar
