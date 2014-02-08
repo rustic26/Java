@@ -1,4 +1,4 @@
-package rustic26.java.clustering;
+package rustic26.java.clustering.sample;
 
 public interface ISample
 {

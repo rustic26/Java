@@ -1,4 +1,4 @@
-package rustic26.java.clustering;
+package rustic26.java.clustering.sample;
 
 public class ArySample implements ISample
 {
@@ -21,7 +21,7 @@ public class ArySample implements ISample
 				{
 					result += Math.pow(_ary[i] - as._ary[i], 2);
 				}
-				return result;
+				return Math.sqrt(result);
 			}
 		}
 		return Double.MIN_VALUE;
