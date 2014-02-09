@@ -36,7 +36,7 @@ public class Util
 		return result;
 	}
 
-	public static <T extends ISample> double TotalDist(Iterable<T> samples, T target)
+	public static <T extends ISample> double totalDist(Iterable<T> samples, T target)
 	{
 		double sum = 0;
 		for(T t : samples)
@@ -44,5 +44,23 @@ public class Util
 			sum += t.diff(target);
 		}
 		return sum;
+	}
+
+	public static <T extends ISample> T farestSample(Iterable<T> references, Iterable<T> candidates)
+	{
+		double min = Double.MAX_VALUE;
+		T result = null;
+		
+		for(T candidate : candidates)
+		{
+			double sum = totalDist(references, candidate);
+			if(min > sum)
+			{
+				min = sum;
+				result = candidate;
+			}
+		}
+		
+		return result;
 	}
 }

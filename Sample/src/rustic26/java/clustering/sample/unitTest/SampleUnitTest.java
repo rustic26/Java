@@ -44,7 +44,7 @@ public class SampleUnitTest
 		}
 		
 		ISample target = new ArySample(new double[]{6});
-		double dist = Util.TotalDist(list, target);
+		double dist = Util.totalDist(list, target);
 		
 		Assert.assertEquals(66.0, dist, 0);
 	}

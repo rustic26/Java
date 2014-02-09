@@ -18,12 +18,41 @@ public class Cluster<T extends ISample>
 	
 	public void run()
 	{
+		pickupInitialPrototypes();
 		
+		HashSet<T> originalPrototypes;
+		do
+		{
+			originalPrototypes = new HashSet<>(_map.keySet());
+			groupAllSamples();
+			pickupPrototypes();
+			originalPrototypes.removeAll(_map.keySet())
+		}
+		while(originalPrototypes.size() != 0);
 	}
 	
 	public int getK()
 	{
 		return _k;
+	}
+	
+	private void pickupInitialPrototypes()
+	{
+		_map.clear();
+		
+		int i = 0;
+		
+		for(T t : _set)
+		{
+			if(i++ == 0)
+			{
+				_map.put(t, new HashSet<T>());
+				continue;
+			}
+			
+			T farest = Util.farestSample(_map.keySet(), _set);
+			_map.put(farest, new HashSet<T>());
+		}
 	}
 	
 	private void groupAllSamples()
@@ -52,7 +81,7 @@ public class Cluster<T extends ISample>
 			T prototype = null;
 			for(T t : c)
 			{
-				double dist = Util.TotalDist(c, t);
+				double dist = Util.totalDist(c, t);
 				if(min > dist)
 				{
 					min = dist;
