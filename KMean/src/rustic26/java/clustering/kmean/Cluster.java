@@ -1,7 +1,6 @@
 package rustic26.java.clustering.kmean;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 import rustic26.java.clustering.sample.BoundryType;
 import rustic26.java.clustering.sample.ISample;
@@ -26,7 +25,7 @@ public class Cluster<T extends ISample>
 			originalPrototypes = new HashSet<>(_map.keySet());
 			groupAllSamples();
 			pickupPrototypes();
-			originalPrototypes.removeAll(_map.keySet())
+			originalPrototypes.removeAll(_map.keySet());
 		}
 		while(originalPrototypes.size() != 0);
 	}
