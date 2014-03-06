@@ -1,10 +1,16 @@
 package rustic26.java.clustering.sample;
 
-public class ArySample implements ISample
+public class ArySample implements ISample, IDimension<Double>
 {
 	public ArySample(double[] ary)
 	{
 		_ary = ary;
+	}
+
+	@Override
+	public Double at(int i)
+	{
+		return _ary[i];
 	}
 	
 	@Override
@@ -31,6 +37,12 @@ public class ArySample implements ISample
 	public Object getValue()
 	{
 		return _ary;
+	}
+	
+	@Override
+	public int size()
+	{
+		return _ary.length;
 	}
 
 	private double[] _ary;

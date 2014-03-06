@@ -7,6 +7,18 @@ import rustic26.java.clustering.sample.*;
 public class SampleUnitTest
 {
 	@Test
+	public void dimensionTest()
+	{
+		IDimension<Double> d = new ArySample(new double[]{0, 1, 2, 3, 4});
+		
+		for(int i = 0; i < 5; ++i)
+		{
+			Assert.assertEquals(Double.valueOf(i),  d.at(i));
+		}
+		
+	}
+	
+	@Test
 	public void diffTest()
 	{
 		ISample s1 = new ArySample(new double[]{1, -1});
